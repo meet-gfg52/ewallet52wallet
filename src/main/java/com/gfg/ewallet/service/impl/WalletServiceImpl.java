@@ -164,4 +164,23 @@ public class WalletServiceImpl implements WalletService {
      *  incase of any failure rollback the state of both wallets
      *
      * */
+
+    /***
+     * Types of propogation:
+     * REQUIRED: This is the default propagation type. It means that if a transaction already exists, the called method will join that transaction. Otherwise, a new transaction will be created for the called method.
+     *
+     * REQUIRES_NEW: This propagation type always creates a new transaction for the called method. It suspends the current transaction, if one exists, and starts a new independent transaction. Once the called method completes, the suspended transaction, if any, is resumed.
+     *
+     * MANDATORY: This propagation type indicates that a transaction must already exist when the called method is invoked. If no transaction exists, an exception will be thrown.
+     *
+     * NESTED: This propagation type creates a nested transaction within an existing transaction. It's similar to REQUIRED, but the nested transaction can be rolled back independently of the outer transaction. If the outer transaction is rolled back, the nested transaction is also rolled back. However, if the nested transaction is rolled back, it doesn't affect the outer transaction.
+     *
+     * SUPPORTS: This propagation type supports the calling method's transaction. If a transaction exists, the called method will be executed within that transaction. If no transaction exists, the called method will be executed non-transactionally.
+     *
+     * NOT_SUPPORTED: This propagation type specifies that the called method should not be executed within a transaction. If a transaction exists, it will be suspended for the duration of the called method's execution.
+     *
+     * NEVER: This propagation type ensures that the called method is not executed within a transaction. If a transaction is active, an exception will be thrown.
+     *
+     * NESTED_READ_COMMITTED: This propagation type is similar to NESTED, but it enforces a read-committed isolation level for the nested transaction.
+     * */
 }
