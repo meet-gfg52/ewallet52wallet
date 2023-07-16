@@ -1,5 +1,6 @@
 package com.gfg.ewallet.service;
 
+import com.fasterxml.jackson.core.JsonProcessingException;
 import com.gfg.ewallet.domain.Wallet;
 import com.gfg.ewallet.service.resource.Transaction;
 
@@ -11,5 +12,5 @@ public interface WalletService {
 
     Wallet disableActiveWallet(String userId);
 
-    void updateWallet(Transaction transaction);
+    void updateWallet(Transaction transaction) throws JsonProcessingException;
 }

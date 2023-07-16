@@ -9,6 +9,7 @@ import org.slf4j.Logger;
 import org.slf4j.LoggerFactory;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.context.annotation.Configuration;
+import org.springframework.kafka.annotation.KafkaListener;
 
 @Configuration
 
@@ -22,6 +23,7 @@ public class TransactionServiceConsumer {
     Logger logger= LoggerFactory.getLogger(TransactionServiceConsumer.class);
 
 
+    @KafkaListener(topics="TRANS_CREATED",groupId = "transactionGroup")
     public void handleTransactions(String message){
         logger.info("transaction message received {}",message);
         try {

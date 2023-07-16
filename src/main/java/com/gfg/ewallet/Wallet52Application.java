@@ -20,17 +20,6 @@ public class Wallet52Application implements CommandLineRunner {
 
 	@Override
 	public void run(String... args) throws Exception {
-		for(int i=0;i<10;i++) {
-			Transaction transaction = new Transaction();
-			transaction.setAmount(1.0);
-			transaction.setSenderId(52L);
-			transaction.setReceiverId(2L);
-			try {
-				service.performTransaction(transaction);
-			} catch (Exception ex) {
-				System.out.println("transaction ended in exception");
-			}
-		}
 
 	}
 }

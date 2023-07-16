@@ -15,22 +15,17 @@ public class UserServiceConsumer {
 
     Logger logger= LoggerFactory.getLogger(UserServiceConsumer.class);
 
-    //@KafkaListener(topics = "USER_CREATED",groupId = "wallet52Grp")
+    @KafkaListener(topics = "USER_CREATED",groupId = "wallet52Grp")
     public void createNewUserWallet(String message){
         logger.info("received Message: {}",message);
         walletService.createNewWallet(message);
     }
 
 
-  //  @KafkaListener(topics = "USER_DELETED",groupId = "wallet52Grp")
+     @KafkaListener(topics = "USER_DELETED",groupId = "wallet52Grp")
     public void disableWalletForUser(String message){
         logger.info("received Message: {}",message);
         walletService.disableActiveWallet(message);
     }
 
- //   @KafkaListener(topics = "TRANSACTION",groupId = "wallet52Grp")
-    public void updateTransaction(String message){
-        logger.info("received Message: {}",message);
-        walletService.disableActiveWallet(message);
-    }
 }

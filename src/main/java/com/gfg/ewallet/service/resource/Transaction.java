@@ -14,5 +14,6 @@ public class Transaction {
     private Long receiverId;
     private Double amount;
     private String status;
+    private String transactionId;
 
 }
